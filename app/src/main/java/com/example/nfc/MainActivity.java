@@ -13,6 +13,8 @@ import android.nfc.tech.MifareUltralight;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.provider.Settings;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,18 +24,28 @@ import com.example.nfc.record.ParsedNdefRecord;
 
 import java.util.List;
 
+import static com.google.common.collect.Iterables.size;
+
 public class MainActivity extends AppCompatActivity {
 
+    public final String hexStudent = "80 5b 9c f2 61 3d 04";
+    public final String hexStaff = "80 5b 9c f2 68 3a 04";
+
     public NfcAdapter nfcAdapter;
-    PendingIntent pendingIntent;
+    public PendingIntent pendingIntent;
     public TextView text;
+    public TextView label;
+    public String hex;
+    ImageView imgView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        this.text = (TextView) findViewById(R.id.text);
         nfcAdapter = NfcAdapter.getDefaultAdapter(this);
+
+        text = (TextView) findViewById(R.id.text);
+        label = (TextView) findViewById(R.id.label);
 
         if (nfcAdapter == null) {
             Toast.makeText(this, "No NFC", Toast.LENGTH_SHORT).show();
@@ -68,9 +80,11 @@ public class MainActivity extends AppCompatActivity {
     private void resolveIntent(Intent intent) {
         String action = intent.getAction();
 
-        if (NfcAdapter.ACTION_TAG_DISCOVERED.equals(action)
-                || NfcAdapter.ACTION_TECH_DISCOVERED.equals(action)
-                || NfcAdapter.ACTION_NDEF_DISCOVERED.equals(action)) {
+        if (
+                NfcAdapter.ACTION_TAG_DISCOVERED.equals(action)
+//                || NfcAdapter.ACTION_TECH_DISCOVERED.equals(action)
+//                || NfcAdapter.ACTION_NDEF_DISCOVERED.equals(action)
+        ) {
             Parcelable[] rawMsgs = intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES);
             NdefMessage[] msgs;
 
@@ -103,14 +117,44 @@ public class MainActivity extends AppCompatActivity {
         StringBuilder builder = new StringBuilder();
         List<ParsedNdefRecord> records = NdefMessageParser.parse(msgs[0]);
         final int size = records.size();
+        System.out.println("record size: " + size(records));
 
         for (int i = 0; i < size; i++) {
             ParsedNdefRecord record = records.get(i);
             String str = record.str();
             builder.append(str).append("\n");
         }
+        hex = getHex(builder.toString());
+        System.out.println("hex: " + hex);
+        System.out.println("sta: " + hexStaff);
+        System.out.println("end");
 
-        text.setText(builder.toString());
+        // show image
+        imgView = (ImageView)findViewById(R.id.img);
+        label = (TextView)findViewById(R.id.label);
+
+        if (hex.equals(hexStudent)) {
+            imgView.setImageResource(R.drawable.student);
+            imgView.setVisibility(View.VISIBLE);
+            label.setText("Domantas Jurkus (Student)");
+            label.setVisibility(View.VISIBLE);
+            System.out.println("Student");
+        } else if (hex.equals(hexStaff)) {
+            imgView.setImageResource(R.drawable.staff);
+            imgView.setVisibility(View.VISIBLE);
+            label.setText("Domantas Jurkus (Staff)");
+            label.setVisibility(View.VISIBLE);
+            System.out.println("Staff");
+        } else {
+            imgView.setVisibility(View.INVISIBLE);
+            label.setVisibility(View.INVISIBLE);
+            text.setText(builder.toString());
+        }
+    }
+
+    public String getHex(String ndef) {
+        String h = ndef.split("\n", 0)[0].split(": ")[1];
+        return h;
     }
 
     private void showWirelessSettings() {
