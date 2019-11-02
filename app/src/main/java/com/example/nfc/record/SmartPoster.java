@@ -20,9 +20,8 @@ import android.nfc.FormatException;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 //import android.support.v4.content.ContextCompat;
-import androidx.core.content.ContextCompat;
 
-import com.example.nfc.ParsedNdefRecord;
+import com.example.nfc.parser.NdefMessageParser;
 import com.google.common.base.Charsets;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableMap;

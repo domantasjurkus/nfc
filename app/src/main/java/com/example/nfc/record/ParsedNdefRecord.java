@@ -1,4 +1,4 @@
-package com.example.nfc;
+package com.example.nfc.record;
 
 public interface ParsedNdefRecord {
 
