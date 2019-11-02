@@ -14,18 +14,13 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.ssaurel.nfcreader.record;
+package com.example.nfc.record;
 
-import android.app.Activity;
 import android.nfc.NdefRecord;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.google.common.base.Preconditions;
-import com.ssaurel.nfcreader.R;
-import com.ssaurel.nfcreader.model.History;
+//import com.example.nfc.R;
+//import com.example.nfc.model.History;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;

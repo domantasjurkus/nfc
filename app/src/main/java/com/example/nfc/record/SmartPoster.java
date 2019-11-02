@@ -14,27 +14,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.ssaurel.nfcreader.record;
+package com.example.nfc.record;
 
-import android.app.Activity;
 import android.nfc.FormatException;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
-import android.support.v4.content.ContextCompat;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewGroup.LayoutParams;
-import android.widget.LinearLayout;
+//import android.support.v4.content.ContextCompat;
+import androidx.core.content.ContextCompat;
 
+import com.example.nfc.ParsedNdefRecord;
 import com.google.common.base.Charsets;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Iterables;
-import com.ssaurel.nfcreader.R;
-import com.ssaurel.nfcreader.model.History;
-import com.ssaurel.nfcreader.parser.NdefMessageParser;
-import com.ssaurel.nfcreader.utils.Utils;
+
+//import com.example.nfc.R;
+//import com.example.nfc.model.History;
+//import com.example.nfc.parser.NdefMessageParser;
+//import com.example.nfc.utils.Utils;
 
 import java.util.Arrays;
 import java.util.NoSuchElementException;

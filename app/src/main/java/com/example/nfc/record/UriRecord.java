@@ -14,24 +14,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.ssaurel.nfcreader.record;
+package com.example.nfc.record;
 
-import android.app.Activity;
 import android.net.Uri;
 import android.nfc.NdefRecord;
-import android.text.util.Linkify;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.ImmutableBiMap;
 import com.google.common.primitives.Bytes;
-import com.ssaurel.nfcreader.R;
-import com.ssaurel.nfcreader.model.History;
-import com.ssaurel.nfcreader.utils.NFCReaderApp;
+//import com.example.nfc.R;
+//import com.example.nfc.model.History;
+//import com.example.nfc.utils.NFCReaderApp;
 
 import java.nio.charset.Charset;
 import java.util.Arrays;
