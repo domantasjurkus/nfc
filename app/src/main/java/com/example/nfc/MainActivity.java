@@ -91,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
                 msgs = new NdefMessage[] {msg};
             }
 
+            System.out.println("hamster");
             displayMsgs(msgs);
         }
     }

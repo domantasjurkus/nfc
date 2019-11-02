@@ -19,8 +19,6 @@ package com.example.nfc.record;
 import android.nfc.NdefRecord;
 
 import com.google.common.base.Preconditions;
-//import com.example.nfc.R;
-//import com.example.nfc.model.History;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;

@@ -23,9 +23,6 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.ImmutableBiMap;
 import com.google.common.primitives.Bytes;
-//import com.example.nfc.R;
-//import com.example.nfc.model.History;
-//import com.example.nfc.utils.NFCReaderApp;
 
 import java.nio.charset.Charset;
 import java.util.Arrays;

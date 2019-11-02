@@ -19,18 +19,12 @@ package com.example.nfc.record;
 import android.nfc.FormatException;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
-//import android.support.v4.content.ContextCompat;
 
 import com.example.nfc.parser.NdefMessageParser;
 import com.google.common.base.Charsets;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Iterables;
-
-//import com.example.nfc.R;
-//import com.example.nfc.model.History;
-//import com.example.nfc.parser.NdefMessageParser;
-//import com.example.nfc.utils.Utils;
 
 import java.util.Arrays;
 import java.util.NoSuchElementException;
